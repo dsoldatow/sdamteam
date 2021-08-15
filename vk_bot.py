@@ -54,7 +54,9 @@ async def create_task(message: Message) -> str:
 
 @bot.on.message(MyRule('create_task_new'))
 async def create_task_new(message: Message) -> str:
-    await message.answer(message.admin_author_id)
+    user_id = message.from_id
+    if user_id:
+        await message.answer(str(user_id))
     text = 'Введи номер предмета из списка (например: 1) или введи свой предмет (например: автоматизация процессов), если его нет в списке: \n'
     for num, subject in enumerate(subjects):
         text += f'{num}. {subject} \n'
