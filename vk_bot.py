@@ -72,7 +72,7 @@ async def my_tasks(message: Message) -> str:
 
 @bot.on.message(MyRule('back'))
 async def back(message: Message) -> str:
-    await message.answer('Привет', keyboard=KEYBOARD_BACK)
+    await message.answer('Привет', keyboard=KEYBOARD_START)
 
 
 bot.run_forever()
