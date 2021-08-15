@@ -1,0 +1,14 @@
+aiohttp==3.7.4.post0
+async-timeout==3.0.1
+attrs==21.2.0
+chardet==4.0.0
+choicelib==0.1.4
+idna==3.2
+multidict==5.1.0
+pydantic==1.8.2
+typing-extensions==3.10.0.0
+vbml==1.1
+vkbottle==3.0.2
+vkbottle-types==5.131
+watchgod==0.7
+yarl==1.6.3

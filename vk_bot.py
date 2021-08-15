@@ -28,6 +28,10 @@ bot = Bot("4c2ab9052cf12589768f89de82443c201308c139e47e82476eae707748feea17079f5
 async def on_start(message: Message) -> str:
     await message.answer('Привет', keyboard=KEYBOARD_START)
 
+
+@bot.on.private_message()
+async def on_start(message: Message) -> str:
+    await message.answer('xuy')
 # @bot.on.message(text='Заказать')
 # async def on_create_task(message: Message) -> str:
 #     await message.answer('Введи номер предмета из списка (например: 1) или введи свой предмет (например: автоматизация процессов), если его нет в списке:', keyboard=KEYBOARD_TASK)
