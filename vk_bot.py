@@ -27,6 +27,7 @@ subjects = {
     '4': "Теория Игр",
     '5': "Макроэкономика",
 }
+subjects = ['Матан', "История экономики", "Физика", "Теория Игр", "Макроэкономика"]
 tasks = []
 
 
@@ -50,18 +51,23 @@ async def create_task(message: Message) -> str:
     else:
         await create_task_new(message)
 
+
 @bot.on.message(MyRule('create_task_new'))
 async def create_task_new(message: Message) -> str:
-    await message.answer('Выберите предмет по которому нужна помощь:', keyboard=keyboard_create(subjects))
+    await message.answer(message.admin_author_id)
+    text = 'Введи номер предмета из списка (например: 1) или введи свой предмет (например: автоматизация процессов), если его нет в списке: \n'
+    for num, subject in enumerate(subjects):
+        text += f'{num}. {subject} \n'
+    await message.answer(text)
 
 
 @bot.on.message(MyRule('help'))
 async def help(message: Message) -> str:
-    await message.answer('Если у вас какие-то вопросы по работе с ботом, напишите ему @dsoldatow')
+    await message.answer('Если у вас какие-то вопросы по работе с ботом, напишите ему @dsoldatow', keyboard=KEYBOARD_BACK)
 
 @bot.on.message(MyRule('my_tasks'))
 async def my_tasks(message: Message) -> str:
-    await message.answer(f'Список заданий {list}', keyboard=KEYBOARD_BACK)
+    await message.answer(f'Список заданий {tasks}', keyboard=KEYBOARD_BACK)
 
 
 @bot.on.message(MyRule('back'))

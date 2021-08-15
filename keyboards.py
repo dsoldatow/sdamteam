@@ -10,13 +10,13 @@ class Keyboard_:
     def get_json(self):
         pass
 
-
-def keyboard_create(items: dict[str, str]):
-    keyboard = Keyboard(one_time=False, inline=False)
-    for text, value in items.items():
-        keyboard.add(Text(text, {"cmd": value}))
-
-    return keyboard.get_json()
+#
+# def keyboard_create_choose(items: list, value: str):
+#     keyboard = Keyboard(one_time=False, inline=False)
+#     for value in items:
+#         keyboard.add(Text(text, {"cmd": value}))
+#
+#     return keyboard.get_json()
 
 
 KEYBOARD_START = (
@@ -35,7 +35,7 @@ KEYBOARD_HELP = (
 
 KEYBOARD_BACK = (
     Keyboard(one_time=False, inline=False)
-        .add(Text("Вернуться", {"cmd": "BACK"}))
+        .add(Text("Вернуться", {"cmd": "back"}))
 ).get_json()
 
 KEYBOARD_TASK_NEW = (
