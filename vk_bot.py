@@ -78,3 +78,4 @@ async def back(message: Message) -> str:
 
 
 bot.run_forever()
+print(bot.state_dispenser)
