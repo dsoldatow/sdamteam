@@ -1,1 +1,1 @@
-web: python3 vk_bot.py
+web: uvicorn fast_api:app --host 0.0.0.0 --port 8000
