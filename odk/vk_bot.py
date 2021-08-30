@@ -1,17 +1,12 @@
-from vkbottle.bot import Bot
-
-
-import logging
 import os
 import random
 from typing import Optional
 
-from vkbottle import GroupEventType, GroupTypes, Keyboard, Text, VKAPIError
 from vkbottle.bot import Bot, Message
 from vkbottle.bot import rules
 from typing import Union
 
-from keyboards import *
+from odk.keyboards import *
 class MyRule(rules.ABCMessageRule):
     def __init__(self, payload_key: str):
         # if not isinstance(payload_key, str):
