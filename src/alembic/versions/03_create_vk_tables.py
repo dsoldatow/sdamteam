@@ -24,7 +24,7 @@ def upgrade():
             user_vk_id bigint NOT NULL,
             current_flow integer DEFAULT NULL,
             last_state_index integer DEFAULT 0,
-            FOREIGN KEY (current_flow) REFERENCES sdamteam.flows (state_id) ON DELETE SET NULL
+            FOREIGN KEY (current_flow) REFERENCES sdamteam.flows (flow_id) ON DELETE SET NULL
         )
         WITH (OIDS = FALSE)
         TABLESPACE pg_default;
