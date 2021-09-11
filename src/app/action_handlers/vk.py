@@ -1,3 +1,5 @@
+import logging
+
 from app.api.models.vk_callback import VkGroupAction
 from app.external.vk import VkApi
 
@@ -22,6 +24,7 @@ class VkActionHandler:
             return await self._handle_message(event.object)
 
     async def _handle_message(self, obj: dict) -> str:
+        logging.info(f'obj: {obj}')
         user_id = obj.get('from_id')
         message_text = obj.get('text').lower()
         current_step = (self._user_states.get(user_id, -1) + 1) % len(FLOW)
