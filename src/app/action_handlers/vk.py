@@ -25,9 +25,12 @@ class VkActionHandler:
 
     async def _handle_message(self, obj: dict) -> str:
         logging.info(f'obj: {obj}')
-        user_id = obj.get('from_id')
-        message_text = obj.get('message').get('text').lower()
+        message = obj.get('message', {})
+        user_id = message.get('from_id')
+        message_text = message.get('text', '').lower()
         current_step = (self._user_states.get(user_id, -1) + 1) % len(FLOW)
-        await self._vk_api.send_message(user_id, FLOW[current_step])
-        self._user_states[user_id] = current_step
-        return 'ok'
+        if user_id:
+            await self._vk_api.send_message(user_id, FLOW[current_step])
+            self._user_states[user_id] = current_step
+            return 'ok'
+        logging.warning('bad message object detected')
