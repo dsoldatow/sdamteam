@@ -11,11 +11,11 @@ router = APIRouter()
 vk_api = VkApi(
     'https://api.vk.com/method',
     '4c2ab9052cf12589768f89de82443c201308c139e47e82476eae707748feea17079f5d01b2f4611397af7',
-    '5.103',
+    '5.131',
 )
 vk_handler = VkActionHandler(
     vk_api,
-    '00c531ef',
+    '3b7c9c6e',
 )
 
 
