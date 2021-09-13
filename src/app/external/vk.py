@@ -19,7 +19,7 @@ class VkApi:
         send_message_url = self._url / 'messages.send'
         payloads = {
             'peer_id': user_id,
-            'random_id': datetime.now().microsecond,
+            'random_id': datetime.now().microsecondч,
             'message': message_text,
             'access_token': self._api_token,
             'v': self._api_version,
@@ -31,7 +31,7 @@ class VkApi:
         else:
             json_response = await response.json()
             logging.info(json_response)
-            error_message = json_response['error']
+            error_message = json_response.get('error')
             if not error_message:
                 return json_response['message_id']
             logging.warning(error_message)
