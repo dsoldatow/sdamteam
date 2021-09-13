@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import datetime
 
 import aiohttp
 import logging
@@ -18,6 +19,7 @@ class VkApi:
         send_message_url = self._url / 'messages.send'
         payloads = {
             'peer_id': user_id,
+            'random_id': datetime.now().microsecond,
             'message': message_text,
             'access_token': self._api_token,
             'v': self._api_version,
