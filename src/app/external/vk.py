@@ -30,8 +30,8 @@ class VkApi:
             logging.warning(e)
         else:
             json_response = await response.json()
-            logging.info(json_response)
+            print(json_response)
             error_message = json_response.get('error')
             if not error_message:
-                return json_response['message_id']
+                return json_response.get('message_id')
             logging.warning(error_message)
