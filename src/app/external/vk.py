@@ -22,14 +22,14 @@ class VkApi:
             'access_token': self._api_token,
             'v': self._api_version,
         }
-        # try:
-        #     response = await self._session.get(send_message_url, params=payloads)
-        # except Exception as e:
-        #     logging.warning(e)
-        # else:
-        #     json_response = await response.json()
-        #     error_message = json_response['error']
-        #     if not error_message:
-        #         return json_response['message_id']
-        #     logging.warning(error_message)
-        print(user_id, ':', message_text)
+        try:
+            response = await self._session.get(send_message_url, params=payloads)
+        except Exception as e:
+            logging.warning(e)
+        else:
+            json_response = await response.json()
+            logging.info(json_response)
+            error_message = json_response['error']
+            if not error_message:
+                return json_response['message_id']
+            logging.warning(error_message)
