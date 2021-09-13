@@ -19,7 +19,7 @@ class VkApi:
         send_message_url = self._url / 'messages.send'
         payloads = {
             'peer_id': user_id,
-            'random_id': datetime.now().microsecondч,
+            'random_id': datetime.now().microsecond,
             'message': message_text,
             'access_token': self._api_token,
             'v': self._api_version,
